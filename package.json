@@ -1,0 +1,26 @@
+{
+  "name": "web-serverless-notes",
+  "version": "1.0.0",
+  "description": "aplicacion web de notas creada con serverless framework y aws lambda",
+  "main": "create.js",
+  "scripts": {
+    "test": "serverless-bundle test"
+  },
+  "author": {
+    "name": "Edixon Alberto",
+    "email": "edixonalbertto@gmail.com"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/EdixonAlberto/web-serverless-notes.git"
+  },
+  "devDependencies": {
+    "aws-sdk": "^2.504.0",
+    "serverless-bundle": "^1.2.2",
+    "serverless-offline": "^5.3.3"
+  },
+  "dependencies": {
+    "uuid": "^3.3.2"
+  }
+}

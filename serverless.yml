@@ -1,0 +1,63 @@
+# NOTE: update this with your service name
+service: serverless-notes
+
+# Create an optimized package for our functions
+package:
+  individually: true
+
+plugins:
+  - serverless-bundle # Package our functions with Webpack
+  - serverless-offline
+
+provider:
+  name: aws
+  runtime: nodejs8.10
+  stage: prod
+  region: us-east-2
+  # To load environment variables externally
+  # rename env.example to env.yml and uncomment
+  # the following line. Also, make sure to not
+  # commit your env.yml.
+  #
+  #environment: ${file(env.yml):${self:provider.stage}}
+
+
+# iamRoleStatements: define
+
+
+iamRoleStatements:
+  - Effect: Allow
+    Action:
+      - dynamodb:DescribeTable
+      - dynamodb:Query
+      - dynamodb:Scan
+      - dynamodb:GetItem
+      - dynamodb:PutItem
+      - dynamodb:UpdateItem
+      - dynamodb:DeleteItem
+    Resource: "arn:aws:dynamodb:us-east-2:*:*"
+
+functions:
+
+  # Se define un end-point api http que llama a la funcion principal en create.js
+  # path: ruta url /notes
+  # method: POST request
+  # cors: habilitado cors para la llamada a la api de dominio cruzado del navegador
+  # authorizer: autenticacion usando el rol AWS IAM
+
+  create:
+    handler: create.main
+    events:
+      - http:
+          path: notes
+          method: post
+          cors: true
+          authorizer: aws_iam
+
+# functions:
+#   hello:
+#     handler: handler.hello
+#     events:
+#       - http:
+#           path: hello
+#           method: get
