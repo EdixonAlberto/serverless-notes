@@ -4,7 +4,8 @@
   "description": "aplicacion web de notas creada con serverless framework y aws lambda",
   "main": "create.js",
   "scripts": {
-    "test": "serverless-bundle test"
+    "test": "serverless-bundle test",
+    "sl:create": "serverless invoke local --function create --path mocks/create-event.json"
   },
   "author": {
     "name": "Edixon Alberto",

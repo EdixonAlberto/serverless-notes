@@ -21,10 +21,8 @@ provider:
   #
   #environment: ${file(env.yml):${self:provider.stage}}
 
-
-# iamRoleStatements: define
-
-
+# iamRoleStatements: define la politica de permisos para la funcion La,bda.
+# En este caso, las funciones de Lambda tienen permisos para acceder a DynamoDB
 iamRoleStatements:
   - Effect: Allow
     Action:
@@ -38,7 +36,6 @@ iamRoleStatements:
     Resource: "arn:aws:dynamodb:us-east-2:*:*"
 
 functions:
-
   # Se define un end-point api http que llama a la funcion principal en create.js
   # path: ruta url /notes
   # method: POST request
