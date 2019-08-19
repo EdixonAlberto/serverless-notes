@@ -51,10 +51,38 @@ functions:
           cors: true
           authorizer: aws_iam
 
-# functions:
-#   hello:
-#     handler: handler.hello
-#     events:
-#       - http:
-#           path: hello
-#           method: get
+  get:
+    handler: get.main
+    events:
+      - http:
+          path: notes/{id}
+          method: get
+          cors: true
+          authorizer: aws_iam
+
+  list:
+    handler: list.main
+    events:
+      - http:
+          path: notes
+          method: get
+          cors: true
+          authorizer: aws_iam
+
+  update:
+    handler: update.main
+    events:
+      - http:
+          path: notes/{id}
+          method: put
+          cors: true
+          authorizer: aws_iam
+
+  delete:
+    handler: delete.main
+    events:
+      - http:
+          path: note/{id}
+          method: delete
+          cors: true
+          authorizer: aws_iam
