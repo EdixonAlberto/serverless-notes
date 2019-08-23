@@ -1,6 +1,9 @@
 # NOTE: update this with your service name
 service: serverless-notes
 
+resources:
+  - ${file(resources/api-gateway-errors.yml)}
+
 # Create an optimized package for our functions
 package:
   individually: true
@@ -86,6 +89,3 @@ functions:
           method: delete
           cors: true
           authorizer: aws_iam
-
-resources:
-  - ${file(resources/api-gateway-errors.yml)}

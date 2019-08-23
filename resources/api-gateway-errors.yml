@@ -1,6 +1,6 @@
 Resources:
   GatewayResponseDefault4XX:
-    type: 'AWS::ApiGateway::GatewayResponse'
+    Type: 'AWS::ApiGateway::GatewayResponse'
     Properties:
       ResponseParameters:
         gatewayresponse.header.Access-Control-Allow-Origin: "'*'"
