@@ -17,7 +17,7 @@
     "url": "https://github.com/EdixonAlberto/web-serverless-notes.git"
   },
   "devDependencies": {
-    "aws-sdk": "^2.504.0",
+    "aws-sdk": "^2.814.0",
     "serverless-bundle": "^1.2.2",
     "serverless-offline": "^5.3.3"
   },
